@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- PWA / Theme -->
+    <meta name="theme-color" content="#15803d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AgroBilling" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="AgroBilling" />
+
+    <!-- SEO / Description -->
+    <meta name="description" content="Admin Billing System for Kisan Bharti Agro Tech Services – Generate invoices, track payments, install as app." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Agro Billing Admin" />
+    <meta property="og:description" content="Professional billing system for Kisan Bharti Agro Tech Services" />
+    <meta property="og:type" content="website" />
+
+    <!-- Icons -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="icon" href="%PUBLIC_URL%/icon-192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="%PUBLIC_URL%/icon-512.png" />
+
+    <title>Agro Billing Admin</title>
+
+    <!-- Register Service Worker (web only; the Android app bundles everything) -->
+    <script>
+      var isNative = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+      if ('serviceWorker' in navigator) {
+        if (isNative) {
+          navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+        } else {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js')
+              .then(function (reg) { console.log('SW registered:', reg.scope); })
+              .catch(function (err) { console.log('SW error:', err); });
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>Enable JavaScript to run Agro Billing Admin.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "appId": "com.billpro.admin",
+  "appName": "Agro Billing",
+  "webDir": "build",
+  "android": { "allowMixedContent": false }
+}
